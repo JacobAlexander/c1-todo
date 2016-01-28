@@ -1,5 +1,5 @@
 if !User.find_by_name('Elena')
-  @user = User.new(name: 'Elena', email: 'e@lena.not', password: '1234', password_confirmation: '1234').save(:validate => false)
+  @user = User.new(name: 'Jacob', email: 'e@lena.not', password: '1234', password_confirmation: '1234').save(:validate => false)
 
   data = [
       [
