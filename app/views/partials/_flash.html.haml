@@ -1,0 +1,7 @@
+- if !flash.empty?
+  -flash_arr = flash.reject {|key,value|key == "errors" }
+  .flash-msg-container
+    - flash_arr.each do |message_type, message|
+      .flash-msg{:class => 'alert-'+message_type}
+        = message.gsub("\n", "<br>").html_safe
+    .fx_line

@@ -1,0 +1,25 @@
+- if logged_in?
+  - if user_have_boards?
+    %ul.boards.c.p
+      -user_boards.each do |board|
+        %li{:class => "#{board != user_boards[-1] ? 'board' : 'board last'}"}
+          .board-inner
+            =link_to board_path(:id => board.id), :class=>'board-link' do
+              %h3.title
+                #{board.name}
+              .info
+                #{board.tasks_count}
+            =link_to new_board_task_path(:board_id => board.id), :class=>'btn add-task' do
+              %i.fa.fa-plus-square
+              Add Task
+            =link_to edit_board_path(:id => board.id), :class=>'btn edit-board' do
+              %i.fa.fa-wrench
+              Edit
+            =link_to board_path(:id => board.id), method: :delete, :class=>'btn close' do
+              %i.fa.fa-times-circle
+
+    .fx_line
+  - else
+    %h3.boards.no-boards
+      No boards
+    .fx_line

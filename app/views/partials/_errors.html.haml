@@ -1,0 +1,19 @@
+- if defined? obj
+  - if obj.errors.any?
+    .form-errors
+      %h3
+        Please correct the following errors:
+      %ul
+        - obj.errors.full_messages.each do |msg|
+          %li
+            =msg
+
+-if defined? flash_obj
+  -if !flash_obj.nil?
+    .form-errors
+      %h3
+        Please correct the following errors:
+      %ul
+        - ActiveSupport::JSON.decode(flash_obj).each do |msg|
+          %li
+            =msg

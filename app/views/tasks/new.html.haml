@@ -1,0 +1,10 @@
+%h1.h1
+  New Task
+.form-task.form-sI
+  = render 'partials/errors', :obj => @task
+  =form_for :task, :url => board_tasks_path, :html => {:class => 'form-g'} do |f|
+    .form-i
+      = f.label :content
+      = f.text_area :content
+    .form-i
+      = f.submit 'Create task'

@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title C1Todo
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .globalWrapper
+      %header.header.c.p
+        = link_to root_path, :class => 'logo' do
+          %i.fa.fa-tasks
+          ToDODO
+
+        = render 'layouts/navigation'
+
+      .fx_line
+      = render 'boards/top_boards_list'
+      = render 'partials/flash'
+      .main
+        = yield

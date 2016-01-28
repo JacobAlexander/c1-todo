@@ -1,0 +1,10 @@
+%h1.h1
+  Edit task
+.form-task.form-sI.form-sI-select
+  = render 'partials/errors', :obj => @task
+  =form_for @task, :url => board_task_path, :html => {:class => 'form-g'} do |f|
+    .form-i
+      = f.label :content
+      = f.text_area :content
+    .form-i
+      = f.submit 'Save task'

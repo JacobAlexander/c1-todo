@@ -1,0 +1,22 @@
+%h1.h1.board-title
+  ="#Board \"#{@board.name}\""
+-if @board
+  %ul.tasks
+    -@board.tasks.each do |task|
+      %li{:class => 'task'+task_class_current_status(task.finished).to_s}
+        =link_to board_task_path(:board_id => @board.id, :id => task.id), :class=>'task-link' do
+          =task.content
+        .task-options
+          =link_to edit_board_task_path(:board_id => @board.id, :id => task.id), :class=>'btn edit-task' do
+            %i.fa.fa-wrench
+            Edit
+          =link_to board_task_path(:board_id => @board.id, :id => task.id), method: :delete, :class=>'btn delete-task' do
+            %i.fa.fa-trash
+            Delete
+        %div{:class => 'mark-task'+task_class_mark_current_status(task.finished).to_s}
+          =link_to board_task_mark_finished_path(:board_id => @board.id, :task_id => task.id, :mark => 'finished'), :method => :post, :class=>'btn link-normal' do
+            %i.fa.fa-square-o.normal
+            Mark as finished
+          =link_to board_task_mark_finished_path(:board_id => @board.id, :task_id => task.id, :mark => 'unfinished'), :method => :post, :class=>'btn link-marked' do
+            %i.fa.fa-check-square-o.checked
+            Task finished

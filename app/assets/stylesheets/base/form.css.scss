@@ -1,0 +1,113 @@
+@import "mixins";
+@import "global";
+
+form {
+  // input styles
+  input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+    display: block;
+    width: 100%;
+    background-color: $form_input_bg_color;
+    color: $form_input_color;
+    font-size: 15px;
+    line-height: 20px;
+    border-width: 0;
+    padding: 5px 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  // common sty;es for input / btn
+  .btn, input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+    @include rounded(3px);
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  // focused input
+  input:not([type]):focus, input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
+    @if $form_input_focus_set == true {
+      color: $form_input_color_focus;
+    }
+  }
+
+  // focused input / btn
+  .btn, input:not([type]):focus, input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
+    @if $form_input_focus_set == true {
+      background-color: $form_input_bg_color_focus;
+    }
+    outline: none;
+  }
+  label {
+    font-size: 1.5rem
+  }
+  .btn {
+    display: block;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 5px 15px; // add +1px on top and bottom because of optional border for inputs
+  }
+}
+
+.form-g {
+  .form-i {
+    margin-bottom: 10px;
+
+    .form-w-icon {
+      position: relative;
+      i {
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        color: $form_icon_color;
+        font-size: 18px;
+      }
+      input {
+        padding-left: 32px;
+      }
+    }
+    .btn {
+      text-align: center;
+      .fa {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  &.form-g-inline {
+    font-size: 0;
+    .form-i {
+      display: inline-block;
+      float: none;
+      .form-i-inner {
+        margin-right: 10px;
+      }
+      input {
+      }
+      &.last .form-i-inner {
+        margin-right: 0;
+
+      }
+    }
+  }
+}
+
+.form-errors {
+  color: #ededed;
+  background: rgba(0, 0, 0, 0.50);
+  padding: 10px;
+  @include rounded(5px);
+  margin: 5px auto 20px;
+  font-size: 1.3rem;
+
+  h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  ul {
+    li {
+      list-style: disc;
+      list-style-position: inside;
+    }
+  }
+}

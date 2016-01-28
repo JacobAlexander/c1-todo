@@ -1,0 +1,8 @@
+%h2.h2
+  Last finished tasks:
+-if !@finished_tasks.empty?
+  %ul.finished-tasks
+    -@finished_tasks.each do |task|
+      %li.finished-task
+        =link_to board_task_path(:board_id => task.board, :id => task) do
+          =task.content

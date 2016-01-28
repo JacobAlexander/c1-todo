@@ -1,0 +1,10 @@
+%h1.h1
+  Edit board
+.form-board.form-sI.form-sI-select
+  = render 'partials/errors', :obj => @board
+  =form_for @board, :url => board_path, :html => {:class => 'form-g'} do |f|
+    .form-i
+      = f.label :name
+      = f.text_field :name
+    .form-i
+      = f.submit 'Save board'
