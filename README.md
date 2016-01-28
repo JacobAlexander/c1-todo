@@ -1,3 +1,3 @@
 # c1-todo
 Todo (Training application)
-![alt text](img/screen.png "Screen")
+![alt text](screen.png "Screen")
