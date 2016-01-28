@@ -10,14 +10,14 @@ module ApplicationHelper
 
   def task_class_current_status(param)
     case param
-      when 1
+      when true
         ' task-finished'
     end
   end
 
   def task_class_mark_current_status(param)
     case param
-      when 1
+      when true
         ' current-status-marked'
       else
         ' current-status-normal'

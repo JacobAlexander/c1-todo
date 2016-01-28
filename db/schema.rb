@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160127194652) do
   create_table "tasks", force: :cascade do |t|
     t.string   "content"
     t.integer  "finished"
+    t.datetime "start_date"
+    t.datetime "finish_date"
     t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

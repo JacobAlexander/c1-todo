@@ -33,7 +33,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "Your task was updated!"
-      redirect_to :back
+      redirect_to board_task_path(board_id: @task.board_id, id: @task.id)
     else
       flash.now[:danger] = "Error while updating task"
       render :edit
@@ -87,6 +87,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :start_date, :finish_date)
   end
 end

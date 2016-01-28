@@ -7,4 +7,10 @@
       = f.label :content
       = f.text_area :content
     .form-i
+      = f.label :start_date
+      = f.text_field :start_date, :class => 'datetimepicker'
+    .form-i
+      = f.label :finish_date
+      = f.text_field :finish_date, :class => 'datetimepicker'
+    .form-i
       = f.submit 'Save task'

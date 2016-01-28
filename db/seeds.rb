@@ -83,7 +83,7 @@ if !User.find_by_name('Elena')
     if board_item[0][:tasks]
       board_item[0][:tasks].each { |task|
         i += 1
-        Task.new(board_id: board_item[0][:id], content: task[0][:content], finished: task[0][:finished]).save(:validate => false)
+        Task.new(board_id: board_item[0][:id], content: task[0][:content], finished: task[0][:finished], start_date: Date.current).save(:validate => false)
 
         Comment.create(task_id: i, content: "I'm a vampire ,,,_(;..;)_,,,")
       }

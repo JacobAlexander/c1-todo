@@ -33,7 +33,7 @@ class BoardsController < ApplicationController
   def update
     if @board.update(board_params)
       flash[:success] = "Your board was updated!"
-      redirect_to :root
+      redirect_to board_path(@board)
     else
       flash.now[:danger] = "Error while updating board  \"#{@board.name}\""
       render :edit

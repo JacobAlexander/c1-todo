@@ -338,18 +338,44 @@ body {
           }
         }
       }
+
       .task-content {
         font-size: 1.6rem;
         padding: 10px;
         background: rgba(0, 0, 0, 0.75);
         @include rounded(5px);
+
+        .task-datetime {
+          float: left;
+          width: 100%;
+          font-size: 1.3rem;
+          @include opacity(0.8);
+          padding-bottom: 5px;
+          border-bottom: 1px solid #999;
+          margin-bottom: 10px;
+
+          & > div {
+            float: left;
+            margin-right: 15px;
+          }
+          .task-start-date {
+          }
+          .task-finish-date {
+          }
+          span.date {
+            color: #c5c5c5;
+          }
+        }
+        .content-inner {
+          clear: both;
+        }
       }
       .comment-container {
         padding-top: 20px;
         .comments {
           margin-bottom: 20px;
           .comment {
-            color:#000;
+            color: #000;
             background: rgba(255, 255, 255, 0.60);
             padding: 10px;
             @include rounded(5px);
@@ -357,7 +383,7 @@ body {
             padding-right: 80px;
             position: relative;
 
-            .btn.delete-comment{
+            .btn.delete-comment {
               position: absolute;
               top: 5px;
               right: 5px;
@@ -372,7 +398,7 @@ body {
       .finished-task {
         list-style: circle;
         margin-bottom: 2px;
-        a{
+        a {
           color: rgba(255, 255, 255, 0.70);
           text-decoration: none;
 
@@ -395,3 +421,12 @@ body {
   }
 }
 
+// Overwrite datetimepicker styles
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
+  background: rgba(0, 0, 0, 0.80) !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
+  background: $bg_gradient_from_color;
+  box-shadow: $bg_gradient_from_color 0 1px 3px 0 inset;
+}

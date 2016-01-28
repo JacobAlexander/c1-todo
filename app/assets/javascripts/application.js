@@ -12,11 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require datetimepicker
 //= require turbolinks
 //= require_tree .
 jQuery.fn.reverse = [].reverse;
 $(document).on('ready page:load', function () {
-
+    jQuery('.datetimepicker').datetimepicker({
+        format: 'Y-m-d H:m:s'
+    });
 
     $('.boards .board, .tasks .task').on({
         mouseover: function () {

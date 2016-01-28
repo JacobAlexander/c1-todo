@@ -12,6 +12,7 @@
  *
  * require_tree .
  *= require font-awesome
+ *= require datetimepicker
  *= require_self
  *= require main
  */

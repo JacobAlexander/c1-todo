@@ -4,7 +4,19 @@
   .task-single-view
     %div{:class => 'task'+task_class_current_status(@task.finished).to_s}
       .task-content
-        =@task[:content]
+        -if !@task.finished
+          .task-datetime
+            .task-start-date
+              Start on:
+              %span.date
+                =@task.start_date
+            -if @task.finish_date
+              .task-finish-date
+                Finish until:
+                %span.date
+                  =@task.finish_date
+        .content-inner
+          =@task.content
       .task-options
         =link_to edit_board_task_path(:board_id => @board.id, :id => @task.id), :class=>'btn edit-task' do
           %i.fa.fa-wrench

@@ -24,6 +24,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "haml-rails", "~> 0.9"
 gem "font-awesome-rails"
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+end
+gem 'validates_timeliness', '~> 4.0'
 
 
 # Use ActiveModel has_secure_password
