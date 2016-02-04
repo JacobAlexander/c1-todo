@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   end
 
   get '/boards', to: redirect('/')
-  get '*', to: redirect('/')
 
 
 end
